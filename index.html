@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
+/* Global Styles */
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:'Roboto', sans-serif; line-height:1.6; background:#f4f4f4; color:#333; scroll-behavior:smooth; }
 a { text-decoration:none; color:inherit; }
@@ -17,10 +18,12 @@ header { position:relative; height:80vh; overflow:hidden; }
 .slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition:opacity 1s ease-in-out; }
 .slide.active { opacity:1; }
 .slide-overlay { position:absolute; width:100%; height:100%; background:rgba(1,58,99,0.7); display:flex; flex-direction:column; justify-content:center; align-items:center; color:white; text-align:center; padding:20px; }
-.slide-overlay h1 { font-size:3rem; margin-bottom:15px; }
-.slide-overlay p { font-size:1.3rem; margin-bottom:25px; }
+.slide-overlay h1 { font-size:3rem; margin-bottom:15px; animation: fadeIn 2s; }
+.slide-overlay p { font-size:1.3rem; margin-bottom:25px; animation: fadeIn 3s; }
 .btn { background:#FFD700; color:#013A63; padding:12px 25px; font-weight:bold; border:none; border-radius:5px; cursor:pointer; transition:0.3s; }
 .btn:hover { background:#e6c200; }
+
+@keyframes fadeIn { from {opacity:0; transform:translateY(-20px);} to {opacity:1; transform:translateY(0);} }
 
 /* Navigation */
 nav { display:flex; justify-content:center; background:#03588C; position:sticky; top:0; z-index:100; }
@@ -37,16 +40,26 @@ h2 { color:#013A63; font-size:2rem; margin-bottom:20px; text-align:center; }
 .service-box:hover { transform:translateY(-5px); box-shadow:0 4px 20px rgba(0,0,0,0.2); }
 .service-box img { width:80px; margin-bottom:15px; }
 
-/* About */
-.about p { max-width:900px; margin:auto; text-align:center; font-size:1.1rem; margin-bottom:20px; }
+/* Process */
+.process { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
+.step { background:white; padding:25px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); flex:1 1 250px; text-align:center; }
+.step h3 { margin-bottom:10px; color:#03588C; }
+
+/* Testimonials */
+.testimonials { display:flex; flex-direction:column; gap:20px; max-width:900px; margin:auto; }
+.testimonial { background:white; padding:20px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+.testimonial p { font-style:italic; margin-bottom:10px; }
+.testimonial h4 { text-align:right; color:#03588C; }
+
+/* FAQs */
+.faq { max-width:900px; margin:auto; }
+.faq-item { background:white; margin-bottom:10px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+.faq-question { padding:15px; cursor:pointer; font-weight:bold; display:flex; justify-content:space-between; align-items:center; }
+.faq-answer { padding:15px; display:none; }
 
 /* Contact */
-.contact form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; }
-.contact input, .contact textarea { padding:10px; border-radius:5px; border:1px solid #ccc; width:100%; font-size:1rem; }
-.contact button { background:#FFD700; color:#013A63; padding:12px; font-weight:bold; border:none; border-radius:5px; cursor:pointer; transition:0.3s; }
-.contact button:hover { background:#e6c200; }
-
-/* Map */
+.contact iframe { width:100%; border:0; border-radius:10px; }
+.contact p { text-align:center; margin-top:20px; }
 .map-container { margin-top:30px; text-align:center; }
 .map-container iframe { width:100%; height:350px; border:0; border-radius:10px; }
 
@@ -58,20 +71,23 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 
 /* Floating Social Buttons */
 .floating-social { position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; z-index:100; }
-.floating-social a { width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 8px rgba(0,0,0,0.3); color:white; font-size:28px; }
-.floating-social a.whatsapp { background:#25D366; }
-.floating-social a.instagram { background:#C13584; }
+.floating-social a { width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 8px rgba(0,0,0,0.3); }
+.floating-social a img { width:35px; height:35px; }
 
 /* Responsive */
-@media(max-width:768px){ .slide-overlay h1{font-size:2rem;} .slide-overlay p{font-size:1rem;} }
+@media(max-width:768px){ .slide-overlay h1{font-size:2rem;} .slide-overlay p{font-size:1rem;} .process { flex-direction:column; }}
 </style>
 </head>
 <body>
 
 <!-- Floating Social Buttons -->
 <div class="floating-social">
-    <a href="https://wa.me/919003313390" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.instagram.com/elitevisa_consultant" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/919003313390" target="_blank" style="background:#25D366;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <a href="https://www.instagram.com/elitevisa_consultant?igsh=ZzN6Z3R4MGMydmYy&utm_source=qr" target="_blank" style="background:#C13584;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
 </div>
 
 <!-- Header Banner Slider -->
@@ -104,9 +120,12 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 <!-- Navigation -->
 <nav>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
+    <a href="#about">About Us</a>
     <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <a href="#process">Process</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#contact">Contact Us</a>
 </nav>
 
 <!-- Home Section -->
@@ -144,22 +163,62 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
     </div>
 </section>
 
+<!-- Process Section -->
+<section id="process">
+    <h2>Our Process</h2>
+    <div class="process">
+        <div class="step"><h3>Step 1</h3><p>Submit your inquiry via contact form or WhatsApp.</p></div>
+        <div class="step"><h3>Step 2</h3><p>Consultation with our experts about your visa or education plan.</p></div>
+        <div class="step"><h3>Step 3</h3><p>Documentation assistance and application submission.</p></div>
+        <div class="step"><h3>Step 4</h3><p>Follow-up and updates until approval.</p></div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonials">
+        <div class="testimonial"><p>"Elite Visa Consultants made my study abroad journey seamless!"</p><h4>- Ramesh, India</h4></div>
+        <div class="testimonial"><p>"I got my work visa quickly thanks to their expert guidance."</p><h4>- Anna, Poland</h4></div>
+        <div class="testimonial"><p>"Highly recommended for business and Schengen visas."</p><h4>- Michael, Germany</h4></div>
+    </div>
+</section>
+
+<!-- FAQs Section -->
+<section id="faqs">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <div class="faq-item">
+            <div class="faq-question">How long does it take to get a study visa?<span>+</span></div>
+            <div class="faq-answer">It typically takes 4–8 weeks depending on the country and university processing time.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do you provide job assistance abroad?<span>+</span></div>
+            <div class="faq-answer">Yes, we connect clients with verified employers internationally for work opportunities.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Can you help with Schengen visas?<span>+</span></div>
+            <div class="faq-answer">Absolutely! We guide you through documentation, appointments, and travel planning.</div>
+        </div>
+    </div>
+</section>
+
 <!-- Contact Section -->
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <!-- Formspree Contact Form -->
-    <form action="https://formspree.io/f/movglnyl" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="_replyto" placeholder="Your Email" required>
-        <input type="text" name="subject" placeholder="Subject" required>
-        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+    <div style="max-width:600px; margin:auto;">
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:10px; margin-bottom:10px;">
+            <input type="email" name="_replyto" placeholder="Your Email" required style="width:100%; padding:10px; margin-bottom:10px;">
+            <input type="text" name="subject" placeholder="Subject" required style="width:100%; padding:10px; margin-bottom:10px;">
+            <textarea name="message" rows="6" placeholder="Your Message" required style="width:100%; padding:10px; margin-bottom:10px;"></textarea>
+            <button type="submit" class="btn" style="width:100%;">Send Message</button>
+        </form>
+    </div>
     <p style="text-align:center; margin-top:20px;">
         Phone: 9003313390 <br>
         Email: elitevisaconsultants13@gmail.com
     </p>
-    <!-- Google Map -->
     <div class="map-container">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2001907.6012241587!2d77.81079006886179!3d11.481672320919353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bac999020a80b6f%3A0x35cbd2601d358c0f!2sElite%20visa%20consultants!5e0!3m2!1sen!2spl!4v1764936470484!5m2!1sen!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -169,7 +228,7 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 <footer>
     © 2025 Elite Visa Consultants | India | Poland
     <div class="social-icons">
-        <a href="https://www.instagram.com/elitevisa_consultant" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/elitevisa_consultant?igsh=ZzN6Z3R4MGMydmYy&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/919003313390" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 </footer>
@@ -184,12 +243,12 @@ setInterval(() => {
     slides[current].classList.add('active');
 }, 5000);
 
-// Smooth Scroll
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function(e){
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({behavior: 'smooth'});
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        q.querySelector('span').textContent = answer.style.display === 'block' ? '-' : '+';
     });
 });
 </script>
