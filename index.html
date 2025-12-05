@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elite Visa Consultants</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<!-- Font Awesome for Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-pVyy+uXJHkMZ++UoYpN5+Zx+K+6wW2t5h1FbkQoWmPqgPZ0O7urGf7j1i2+3GwE57aF+vKxOomI/lP+d0p6Jcw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:'Roboto', sans-serif; line-height:1.6; background:#f4f4f4; color:#333; scroll-behavior:smooth; }
@@ -57,23 +56,22 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 .social-icons a:hover { color:#FFD700; }
 
 /* WhatsApp Floating Button */
-.whatsapp {
+.whatsapp-img {
     position:fixed;
     bottom:20px;
     right:20px;
-    background:#25D366;
-    color:white;
-    border-radius:50%;
+    z-index:100;
     width:60px;
     height:60px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#25D366;
+    padding:10px;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:2rem;
-    z-index:100;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
-.whatsapp:hover { background:#1ebe57; }
+.whatsapp-img img { width:100%; height:100%; }
 
 /* Responsive */
 @media(max-width:768px){ .slide-overlay h1{font-size:2rem;} .slide-overlay p{font-size:1rem;} }
@@ -81,12 +79,10 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 </head>
 <body>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/919003313390" target="_blank" style="position:fixed; bottom:20px; right:20px; z-index:100;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-         style="width:60px; height:60px; border-radius:50%; background:#25D366; padding:10px;" alt="WhatsApp">
+<!-- WhatsApp Floating Button (Image) -->
+<a href="https://wa.me/919003313390" target="_blank" class="whatsapp-img">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
-
 
 <!-- Header Banner Slider -->
 <header>
@@ -161,7 +157,8 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 <!-- Contact Section -->
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <form action="mailto:elitevisaconsultants13@gmail.com" method="post" enctype="text/plain">
+    <!-- Formspree Form -->
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
