@@ -41,8 +41,10 @@ h2 { color:#013A63; font-size:2rem; margin-bottom:20px; text-align:center; }
 .about p { max-width:900px; margin:auto; text-align:center; font-size:1.1rem; margin-bottom:20px; }
 
 /* Contact */
-.contact iframe { width:100%; border:0; border-radius:10px; }
-.contact p { text-align:center; margin-top:20px; }
+.contact form { max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; }
+.contact input, .contact textarea { padding:10px; border-radius:5px; border:1px solid #ccc; width:100%; font-size:1rem; }
+.contact button { background:#FFD700; color:#013A63; padding:12px; font-weight:bold; border:none; border-radius:5px; cursor:pointer; transition:0.3s; }
+.contact button:hover { background:#e6c200; }
 
 /* Map */
 .map-container { margin-top:30px; text-align:center; }
@@ -56,8 +58,9 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 
 /* Floating Social Buttons */
 .floating-social { position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; z-index:100; }
-.floating-social a { width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 8px rgba(0,0,0,0.3); }
-.floating-social a img { width:35px; height:35px; }
+.floating-social a { width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 8px rgba(0,0,0,0.3); color:white; font-size:28px; }
+.floating-social a.whatsapp { background:#25D366; }
+.floating-social a.instagram { background:#C13584; }
 
 /* Responsive */
 @media(max-width:768px){ .slide-overlay h1{font-size:2rem;} .slide-overlay p{font-size:1rem;} }
@@ -67,12 +70,8 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 
 <!-- Floating Social Buttons -->
 <div class="floating-social">
-    <a href="https://wa.me/919003313390" target="_blank" style="background:#25D366;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
-    <a href="https://www.instagram.com/elitevisa_consultant?igsh=ZzN6Z3R4MGMydmYy&utm_source=qr" target="_blank" style="background:#C13584;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-    </a>
+    <a href="https://wa.me/919003313390" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/elitevisa_consultant" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
 </div>
 
 <!-- Header Banner Slider -->
@@ -148,17 +147,21 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 <!-- Contact Section -->
 <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <!-- Google Form Embed -->
-    <div style="max-width:600px; margin:auto;">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfOaNS-21i89BZAyjOXnj9rV-RqN9gum2xp4QrD-uKBeq2IgA/viewform?embedded=true" width="100%" height="689" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
+    <!-- Formspree Contact Form -->
+    <form action="https://formspree.io/f/mayvzbwl" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
     <p style="text-align:center; margin-top:20px;">
         Phone: 9003313390 <br>
         Email: elitevisaconsultants13@gmail.com
     </p>
     <!-- Google Map -->
     <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2001907.6012241587!2d77.81079006886179!3d11.481672320919353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bac999020a80b6f%3A0x35cbd2601d358c0f!2sElite%20visa%20consultants!5e0!3m2!1sen!2spl!4v1764936470484!5m2!1sen!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2001907.6012241587!2d77.81079006886179!3d11.481672320919353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bac999020a80b6f%3A0x35cbd2601d358c0f!2sElite%20visa%20consultants!5e0!3m2!1sen!2spl!4v1764936470484!5m2!1sen!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </section>
 
@@ -166,7 +169,7 @@ footer { background:#013A63; color:white; text-align:center; padding:25px; margi
 <footer>
     © 2025 Elite Visa Consultants | India | Poland
     <div class="social-icons">
-        <a href="https://www.instagram.com/elitevisa_consultant?igsh=ZzN6Z3R4MGMydmYy&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/elitevisa_consultant" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/919003313390" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 </footer>
@@ -180,6 +183,15 @@ setInterval(() => {
     current = (current + 1) % slides.length;
     slides[current].classList.add('active');
 }, 5000);
+
+// Smooth Scroll
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({behavior: 'smooth'});
+    });
+});
 </script>
 
 </body>
