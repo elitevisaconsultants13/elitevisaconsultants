@@ -43,40 +43,82 @@
     </div>
   </div>
 </header>
+<style>
+  #cp-wrap{background:#2E4356;border-radius:24px;padding:56px;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:46px;}
+  @media(max-width:860px){#cp-wrap{grid-template-columns:1fr;padding:32px 22px;}}
+  #cp-wrap h2{color:#fff;font-family:'Space Grotesk',sans-serif;}
+  #cp-form{display:flex;flex-direction:column;gap:16px;width:100%;}
+  .cp-field{display:flex;flex-direction:column;gap:6px;width:100%;}
+  .cp-field label{font-size:0.78rem;font-weight:700;letter-spacing:0.03em;color:#EADFCB;}
+  .cp-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:520px){.cp-row{grid-template-columns:1fr;}}
+  #cp-form input,#cp-form select,#cp-form textarea{
+    width:100%;box-sizing:border-box;display:block;padding:13px 15px;border-radius:10px;
+    border:1px solid rgba(255,255,255,0.28);background:rgba(255,255,255,0.09);color:#fff;
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:0.94rem;
+  }
+  #cp-form input::placeholder,#cp-form textarea::placeholder{color:rgba(255,255,255,0.45);}
+  #cp-form select option{color:#24231F;}
+  #cp-form button{
+    width:100%;background:#BE7B4F;color:#fff;border:none;padding:14px;border-radius:10px;
+    font-weight:700;font-size:0.96rem;cursor:pointer;margin-top:4px;
+  }
+  #cp-form button:hover{background:#a8683f;}
+  #cp-info{display:flex;flex-direction:column;gap:16px;}
+  .cp-office{display:flex;gap:14px;padding:16px;border-radius:14px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.22);color:#fff;}
+  .cp-office i{color:#EADFCB;font-size:1.1rem;margin-top:3px;}
+  .cp-office strong{color:#fff;}
+  .cp-office a{color:#EADFCB;font-weight:700;}
+</style>
+
 <section>
   <div class="wrap">
-    <div class="contact-wrap">
+    <div id="cp-wrap">
       <div>
         <span class="eyebrow" style="color:#EADFCB;">Let's talk</span>
         <h2 style="font-size:1.9rem;margin:10px 0 18px;">Start Your Visa Assessment</h2>
         <p style="opacity:0.85;margin-bottom:22px;">Tell us about your travel plans and our team will guide you through the next steps.</p>
-        <form action="https://formspree.io/f/movglnyl" method="POST">
-          <input type="text" name="full_name" placeholder="Full Name" required>
-          <input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
-          <input type="email" name="_replyto" placeholder="Email Address" required>
-          <input type="text" name="nationality" placeholder="Nationality" required>
-          <input type="text" name="current_country" placeholder="Current Country of Residence" required>
-          <input type="text" name="current_city" placeholder="Current City" required>
-          <input type="text" name="destination_country" placeholder="Destination Country" required>
-          <select name="visa_type" required>
-            <option value="" disabled selected>Visa Type</option>
-            <option>Tourist</option><option>Schengen</option><option>Study</option>
-            <option>Work</option><option>Business</option><option>Family/Dependent</option><option>Other</option>
-          </select>
-          <input type="text" name="purpose" placeholder="Purpose of Travel" required>
-          <input type="text" name="travel_date" placeholder="Planned Travel Date" onfocus="(this.type='date')">
-          <select name="previous_refusal">
-            <option value="" disabled selected>Previous Visa Refusal?</option>
-            <option>No</option><option>Yes</option>
-          </select>
-          <textarea name="message" rows="4" placeholder="Message"></textarea>
+        <form id="cp-form" action="https://formspree.io/f/movglnyl" method="POST">
+          <div class="cp-row">
+            <div class="cp-field"><label>Full Name</label><input type="text" name="full_name" placeholder="e.g. Priya Shankar" required></div>
+            <div class="cp-field"><label>WhatsApp Number</label><input type="text" name="whatsapp" placeholder="+91 XXXXX XXXXX" required></div>
+          </div>
+          <div class="cp-row">
+            <div class="cp-field"><label>Email Address</label><input type="email" name="_replyto" placeholder="you@example.com" required></div>
+            <div class="cp-field"><label>Nationality</label><input type="text" name="nationality" placeholder="e.g. Indian" required></div>
+          </div>
+          <div class="cp-row">
+            <div class="cp-field"><label>Current Country of Residence</label><input type="text" name="current_country" placeholder="e.g. India" required></div>
+            <div class="cp-field"><label>Current City</label><input type="text" name="current_city" placeholder="e.g. Tiruvannamalai" required></div>
+          </div>
+          <div class="cp-row">
+            <div class="cp-field"><label>Destination Country</label><input type="text" name="destination_country" placeholder="e.g. Poland" required></div>
+            <div class="cp-field"><label>Visa Type</label>
+              <select name="visa_type" required>
+                <option value="" disabled selected>Select visa type</option>
+                <option>Tourist</option><option>Schengen</option><option>Study</option>
+                <option>Work</option><option>Business</option><option>Family/Dependent</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="cp-field"><label>Purpose of Travel</label><input type="text" name="purpose" placeholder="e.g. Higher studies, employment, family visit" required></div>
+          <div class="cp-row">
+            <div class="cp-field"><label>Planned Travel Date</label><input type="text" name="travel_date" placeholder="DD/MM/YYYY" onfocus="(this.type='date')"></div>
+            <div class="cp-field"><label>Previous Visa Refusal?</label>
+              <select name="previous_refusal">
+                <option value="" disabled selected>Select an option</option>
+                <option>No</option><option>Yes</option>
+              </select>
+            </div>
+          </div>
+          <div class="cp-field"><label>Message</label><textarea name="message" rows="4" placeholder="Anything else we should know?"></textarea></div>
           <button type="submit">Submit Visa Assessment</button>
         </form>
       </div>
-      <div class="contact-info">
-        <div class="office"><i class="fa-solid fa-location-dot"></i><div><strong>India</strong><br>Near Arunachalam Theatre, No.1, 6th St, opp. Water Tank, VOC Nagar, Thamarai Nagar, Tiruvannamalai, Tamil Nadu 606603</div></div>
-        <div class="office"><i class="fa-solid fa-location-dot"></i><div><strong>Poland</strong><br>Czerwona Droga, 02-495 Warsaw</div></div>
-        <div class="office"><i class="fa-brands fa-whatsapp"></i><div><strong>WhatsApp</strong><br><a href="https://wa.me/919003313390" style="color:#EADFCB;">Chat With Us on WhatsApp</a></div></div>
+      <div id="cp-info">
+        <div class="cp-office"><i class="fa-solid fa-location-dot"></i><div><strong>India</strong><br>Near Arunachalam Theatre, No.1, 6th St, opp. Water Tank, VOC Nagar, Thamarai Nagar, Tiruvannamalai, Tamil Nadu 606603</div></div>
+        <div class="cp-office"><i class="fa-solid fa-location-dot"></i><div><strong>Poland</strong><br>Czerwona Droga, 02-495 Warsaw</div></div>
+        <div class="cp-office"><i class="fa-brands fa-whatsapp"></i><div><strong>WhatsApp</strong><br><a href="https://wa.me/919003313390">Chat With Us on WhatsApp</a></div></div>
         <div style="border-radius:14px;overflow:hidden;margin-top:4px;">
           <iframe src="https://maps.google.com/maps?q=12.2261608,79.0628067&z=16&output=embed" style="width:100%;height:220px;border:0;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
