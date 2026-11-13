@@ -1,0 +1,20 @@
+ELITE VISA CONSULTANTS - NOVEMBER 2026 UPDATE
+Upload everything in this zip to the ROOT of your repo (replace existing files). Keep "New folder/" and CNAME as they are.
+
+NEW FILES: site.js, sitemap.xml, robots.txt, favicon.svg, apple-touch-icon.png, og-image.png, 404.html
+CHANGED: all 17 .html pages, styles.css
+
+What changed
+- SEO: unique titles/descriptions, canonical, Open Graph, JSON-LD (business schema), sitemap, robots, favicon, social image, 404 page.
+- Accessibility: skip link, main landmark, labelled menu button, keyboard FAQ (real buttons), form labels, focus outlines, higher-contrast clay and WhatsApp green, reduced motion.
+- Contact form: sends without leaving the page, spam honeypot, consent checkbox, WhatsApp fallback on error, labelled maps.
+- Performance: one shared site.js, lazy images, smaller study photo.
+- Content: footer shows Tiruvannamalai/Warsaw/phone; official-source links on Guides; "Last updated" notes; reviews/success-stories sections hidden until you have real ones (they are wrapped in HTML comments).
+- Germany PDF buttons left hidden, as you chose.
+
+Please check
+1. "Mon-Sat, 10am-6pm IST" on the Contact page was my placeholder - correct it or delete it.
+2. Click each official-source link on guides.html (I could not open them).
+3. Unsplash photos could not be tested from my side; open the live site and confirm they load.
+4. Keep the "Last updated" months truthful when you revise content.
+5. Still missing: business email, registration details, real reviews.
